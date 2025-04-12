@@ -27,6 +27,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'blog.CustomUser'
+
+# Add these at the bottom
+ADMIN_EMAILS = ['thiwa528@gmail.com']  # List of admin emails
+MYSQL_ADMIN_USER = 'root'
+MYSQL_ADMIN_PASSWORD = 'mysql@123'
 
 # Application definition
 
@@ -49,6 +55,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'blog.middleware.DynamicDBCredentialsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'blog_app.urls'
